@@ -1,0 +1,1 @@
+<!--[ngClass]="{ 'list-group-item-danger': note.isSold}"-->       note.html

@@ -1,0 +1,24 @@
+<div class="form-group">
+  <label for="note-Description">Description Note</label>
+  <input
+    type="text"
+    class="form-control"
+    Id="note-Description"
+    [(ngModel)]="noteDescription"
+    placeholder="note-Description"
+  >
+</div>
+
+<div class="form-group">
+  <label for="note-NoteText">Note </label>
+  <input
+    type="text"
+    class="form-control"
+    Id="note-NoteText"
+    [(ngModel)]="noteNoteText"
+    placeholder="NoteText"
+  >
+</div>
+
+<button type="button" (click)="onAdd()" class="btn btn-outline-primary">Add Note</button>
+<button type="button" (click)="onLoad()" class="btn btn-outline-warning">Load Notes</button>
