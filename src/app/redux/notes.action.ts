@@ -6,6 +6,7 @@ export namespace NOTE_ACTION {
   export const DELETE_NOTE = 'DELETE_NOTE'
   export const UPDATE_NOTE = 'UPDATE_NOTE'
   export const LOAD_NOTES = 'LOAD_NOTES'
+  export const LOAD_NOTE = 'LOAD_NOTE'
 }
 
 export class AddNote implements Action {
@@ -26,10 +27,16 @@ export class UpdateNote implements Action {
   constructor(public payload: Note) {}
 }
 
+export class LoadNote implements Action {
+  readonly type = NOTE_ACTION.LOAD_NOTE
+
+  constructor(public payload: Note) {console.log(payload);}
+}
+
 export class LoadNotes implements Action {
   readonly type = NOTE_ACTION.LOAD_NOTES
 
   constructor(public payload: Note[]) {console.log(payload);}
 }
 
-export type NotesAction = AddNote | DeleteNote | UpdateNote | LoadNotes
+export type NotesAction = AddNote | DeleteNote | UpdateNote | LoadNotes | LoadNote

@@ -1,6 +1,5 @@
-import {Component} from '@angular/core'
+import {Component,Input} from '@angular/core'
 import { Store } from '@ngrx/store'
-//import * as moment from 'moment'
 import {Note} from '../note.model'
 import {NotesService} from '../notes.service'
 import { AppState } from '../redux/app.state'
@@ -12,20 +11,23 @@ import { AppState } from '../redux/app.state'
 })
 export class NotesFormComponent {
 
+  @Input() note: Note
   noteDescription: string = ''
   noteNoteText: string = ''
 
-  constructor(private store: Store<AppState>, private service: NotesService) {
+  constructor( private service: NotesService) {
+  }
+
+  ngOnInit(): void {
+
+    this.onLoad();
   }
 
   onAdd() {
     if (this.noteDescription === '' || this.noteNoteText === '') return
 
-    
     const note = new Note( this.noteDescription, this.noteNoteText)
-
-    //this.service.addNote(note)
-
+    this.service.addNote(note)
     this.noteDescription = ''
     this.noteNoteText = ''
   }

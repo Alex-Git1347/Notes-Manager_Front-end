@@ -28,6 +28,11 @@ export function notesReducer(state = initialState, action: NotesAction) {
         ...state,
         notes: [...action.payload]
       }
+    case NOTE_ACTION.LOAD_NOTE:
+      return {
+        ...state,
+        notes: [...state.notes.filter(c => c.Id === action.payload.Id)]
+      }
     default:
       return state
   }

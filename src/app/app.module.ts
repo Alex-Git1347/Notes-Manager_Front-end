@@ -9,20 +9,21 @@ import {NoteComponent} from './note/note.component'
 import {notesReducer} from './redux/notes.reducer'
 import {NotesService} from './notes.service'
 //import {HttpModule} from '@angular/http'
-import { HttpClient, HttpClientModule } from '@angular/common/http'
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { NoteEditComponent } from './note-edit/note-edit.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     NotesFormComponent,
-    NoteComponent
+    NoteComponent,
+    NoteEditComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     StoreModule.forRoot({notePage: notesReducer})
-    //,StoreModule.forRoot({}, {})
   ],
   providers: [NotesService],
   bootstrap: [AppComponent]

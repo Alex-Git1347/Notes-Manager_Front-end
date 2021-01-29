@@ -1,12 +1,12 @@
-<div class="container">
 
+<h3 class="m-4">Notes Manager </h3>
+<div class = "mx-5" >
   <app-notes-form></app-notes-form>
-
-  <div class="list-group mt-4">
+  <div  class="list-group mt-3">
     <app-note
-      [note]="note_"
-      *ngFor="let note_ of (noteState | async).notes"
+      [note]="note"
+      *ngFor="let note of (noteState | async).notes" 
     ></app-note>
   </div>
-
 </div>
+

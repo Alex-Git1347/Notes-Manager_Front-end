@@ -1,8 +1,6 @@
 import {Component, Input} from '@angular/core'
-import {Store} from '@ngrx/store'
 import {Note} from '../note.model'
-import {AppState} from '../redux/app.state'
-import {DeleteNote, UpdateNote} from '../redux/notes.action'
+import { NotesService } from '../notes.service'
 
 @Component({
   selector: 'app-note',
@@ -12,15 +10,17 @@ import {DeleteNote, UpdateNote} from '../redux/notes.action'
 export class NoteComponent {
 
   @Input() note: Note
-
-  constructor(private store: Store<AppState>) {}
+  noteDescription: string
+  noteNoteText: string
+  flag:boolean=false;
+  
+  constructor(private service: NotesService) {}
 
   onDelete() {
-    this.store.dispatch(new DeleteNote(this.note))
+    this.service.deleteNote(this.note)
   }
-
-  onBuy() {
-    this.store.dispatch(new UpdateNote(this.note))
+  onLoad(){
+  this.service.loadNote(this.note.Id)
+  this.flag=true;
   }
-
 }
