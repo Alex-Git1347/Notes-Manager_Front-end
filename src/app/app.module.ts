@@ -10,14 +10,12 @@ import {notesReducer} from './redux/notes.reducer'
 import {NotesService} from './notes.service'
 //import {HttpModule} from '@angular/http'
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { NoteEditComponent } from './note-edit/note-edit.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     NotesFormComponent,
-    NoteComponent,
-    NoteEditComponent
+    NoteComponent
   ],
   imports: [
     BrowserModule,

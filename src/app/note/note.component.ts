@@ -19,8 +19,20 @@ export class NoteComponent {
   onDelete() {
     this.service.deleteNote(this.note)
   }
+
+  onFlagTrue(){
+    this.flag=true;
+  }
+
+  onFlagFalse(){
+    this.flag=false;
+  }
+
+  onEdit() {
+    this.service.updateNote(this.note)
+    this.flag=false;
+  }
   onLoad(){
   this.service.loadNote(this.note.Id)
-  this.flag=true;
   }
 }

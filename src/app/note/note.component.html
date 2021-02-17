@@ -1,29 +1,43 @@
-<div
-  class="list-group-item flex-column align-items-start mb-3"
->
+<div class="list-group-item flex-column align-items-start mb-3">
+  <ng-template [ngIf]="flag != true" [ngIfElse]="edit">
   <div class="d-flex w-100 justify-content-between">
     <h4 class="mb-3">{{note.Description}}</h4>
-    <small></small>
   </div>
-  <p class="mb-2" >
-    {{note.NoteText}}
-  </p>
+        <p class="mb-2" >
+          {{note.NoteText}}
+        </p>
   <div class="row justify-content-md-center">
     <div class="col col-lg-12">
       <button
+      (click)="onFlagTrue()"
+      type="button"
+      class="btn btn-sm btn-warning btn-sm m-1"
+    >
+      Edit
+     </button>
+      <button
         (click)="onDelete()"
         type="button"
-        class="btn btn-danger btn-sm"
+        class="btn btn-danger btn-sm m-1"
       >
         Delete
       </button>
-      <!--<button 
-        type="button"
-        class="btn btn-success btn-sm"
-        (click)="onLoad()"
-      >
-        Edit
-      </button>-->
     </div>
   </div>
+  </ng-template>
+
+  <ng-template #edit>
+      <div class="d-flex w-100 justify-content-between">
+        <h4 class="mb-3">
+          <input class="mb-3" type="text" [(ngModel)]="note.Description" class="form-control" />
+        </h4>
+      </div>
+      <div class="d-flex w-100 justify-content-between">
+      <p class="mb-3" >
+        <input type="text" [(ngModel)]="note.NoteText" class="form-control" />
+      </p>
+      </div>
+        <input type="button" value="Save" (click)="onEdit()" class="btn btn-sm btn-success m-1" />
+        <input type="button" value="Cancel" (click)="onFlagFalse()" class="btn btn-sm m-1 buttonCancel" />
+</ng-template>
 </div>
